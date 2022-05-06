@@ -53,4 +53,10 @@ Park.prototype.countNumberOfVisitorsPerYear = function () {
     return total;
 }
 
+Park.prototype.totalRevenueTicketSaleAYear = function () {
+    total = this.countNumberOfVisitorsPerYear() * this.ticketPrice;
+
+    return total;
+}
+
 module.exports = Park;

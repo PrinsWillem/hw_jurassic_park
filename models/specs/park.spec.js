@@ -67,8 +67,10 @@ describe('Park', function () {
         const expected = 109500;
         assert.deepStrictEqual(expected, jurassicPark.countNumberOfVisitorsPerYear());
     });
-    xit('Calculate the total revenue from ticket sales for one year', function () {
-
+    it('Calculate the total revenue from ticket sales for one year', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        const expected = 365000
+        assert.deepStrictEqual(expected, jurassicPark.totalRevenueTicketSaleAYear())
     });
 
     // EXTENSIONS
