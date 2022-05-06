@@ -38,7 +38,7 @@ describe('Park', function () {
         jurassicPark.addDinosaurToCollection(brachiosaurus);
         jurassicPark.addDinosaurToCollection(raptor);
         const expected = brachiosaurus
-        assert.deepStrictEqual(expected, jurassicPark.dinosaurWithMostVisistors())
+        assert.deepStrictEqual(expected, jurassicPark.dinosaurWithMostVisistors());
     });
     it('Find all dinosaurs of a particual species', function () {
         jurassicPark.addDinosaurToCollection(ankilosaurus);
@@ -47,10 +47,16 @@ describe('Park', function () {
         jurassicPark.addDinosaurToCollection(spinosaurus);
         jurassicPark.addDinosaurToCollection(brachiosaurus);
         const expected = 3
-        assert.deepStrictEqual(expected, jurassicPark.findDinosaurOfSameSpecies('ankilosaurus').length)
+        assert.deepStrictEqual(expected, jurassicPark.findDinosaurOfSameSpecies('ankilosaurus').length);
     });
-    xit('Calculate the total number of visitors per day', function () {
-
+    it('Calculate the total number of visitors per day', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(ankilosaurus1);
+        jurassicPark.addDinosaurToCollection(ankilosaurus2);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        const expected = 300;
+        assert.deepStrictEqual(expected, jurassicPark.countNumberOfVisitorsPerDay());
     });
     xit('Calculate the total number of visistors per year', function () {
 

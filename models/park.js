@@ -37,4 +37,14 @@ Park.prototype.findDinosaurOfSameSpecies = function (species) {
     return dinosaurOfSameSpecies;
 }
 
+Park.prototype.countNumberOfVisitorsPerDay = function () {
+    total = 0;
+
+    for (dino of this.dinosaurCollection) {
+        total += dino.averageAttractedVisitorsADay
+    }
+
+    return total;
+}
+
 module.exports = Park;
