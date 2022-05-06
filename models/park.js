@@ -11,7 +11,7 @@ Park.prototype.addDinosaurToCollection = function (dinosaur) {
 Park.prototype.removeDinosaurFromCollection = function (dinosaur) {
     const dinosaurToRemove = this.dinosaurCollection.indexOf(dinosaur);
     this.dinosaurCollection.splice(dinosaurToRemove, 1);
-}
+};
 
 Park.prototype.dinosaurWithMostVisistors = function () {
     let mostVisitedDinosaur = this.dinosaurCollection[0];
@@ -23,7 +23,7 @@ Park.prototype.dinosaurWithMostVisistors = function () {
     }
 
     return mostVisitedDinosaur;
-}
+};
 
 Park.prototype.findDinosaurOfSameSpecies = function (species) {
     const dinosaurOfSameSpecies = [];
@@ -35,7 +35,7 @@ Park.prototype.findDinosaurOfSameSpecies = function (species) {
     }
 
     return dinosaurOfSameSpecies;
-}
+};
 
 Park.prototype.countNumberOfVisitorsPerDay = function () {
     total = 0;
@@ -45,18 +45,32 @@ Park.prototype.countNumberOfVisitorsPerDay = function () {
     }
 
     return total;
-}
+};
 
 Park.prototype.countNumberOfVisitorsPerYear = function () {
     total = this.countNumberOfVisitorsPerDay() * 365;
 
     return total;
-}
+};
 
 Park.prototype.totalRevenueTicketSaleAYear = function () {
     total = this.countNumberOfVisitorsPerYear() * this.ticketPrice;
 
     return total;
-}
+};
+
+Park.prototype.removeAllDinosaursOfAParticularSpecies = function (species) {
+    const dinosaursToDelete = this.findDinosaurOfSameSpecies(species)
+
+    for (dino of this.dinosaurCollection) {
+        for (dinoToDelete of dinosaursToDelete) {
+            if(dino === dinoToDelete) {
+                this.removeDinosaurFromCollection(dinosaursToDelete)
+            };
+        };
+    };
+
+    return this.dinosaurCollection;
+};
 
 module.exports = Park;

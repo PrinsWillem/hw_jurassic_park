@@ -74,8 +74,14 @@ describe('Park', function () {
     });
 
     // EXTENSIONS
-    xit('Remove all dinosaurs of a particular species', function () {
-
+    it('Remove all dinosaurs of a particular species', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(ankilosaurus1);
+        jurassicPark.addDinosaurToCollection(ankilosaurus2);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        const expected = 2;
+        assert.deepStrictEqual(expected, jurassicPark.removeAllDinosaursOfAParticularSpecies('ankilosaurus').length);
     });
     xit('Provide an object containing each of the diet types and the number of dinosaurs in the park of that diet type', function () {
 
