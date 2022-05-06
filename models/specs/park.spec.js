@@ -5,16 +5,28 @@ const Dinosaur = require('../dinosaur.js');
 describe('Park', function () {
 
     beforeEach(function () {
+        ankilosaurus = new Dinosaur('ankilosaurus','herbivore', 50);
+        brachiosaurus = new Dinosaur('brachiosaurus','herbivore', 80);
+        raptor = new Dinosaur ('raptor', 'carnivore', 50);
+        spinosaurus = new Dinosaur ('spinosaurus', 'omnivore', 40);
 
+        jurassicPark = new Park ('Jurassic Park', 20);
     });
 
 
     // MVP
-    xit('Add a dinosaur to its collection of dinosaurs', function () {
-
+    it('Add a dinosaur to its collection of dinosaurs', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        const expected = 2;
+        assert.deepStrictEqual(expected, jurassicPark.dinosaurCollection.length);
     });
-    xit('Remove a dinosaur from its collection of dinosaurs', function () {
-
+    it('Remove a dinosaur from its collection of dinosaurs', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        jurassicPark.removeDinosaurFromCollection(ankilosaurus);
+        const expected = [brachiosaurus];
+        assert.deepStrictEqual(expected, jurassicPark.dinosaurCollection);
     });
     xit('Find the dinosaur that attracts the most visitors', function () {
 
