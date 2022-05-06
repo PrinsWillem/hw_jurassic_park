@@ -6,6 +6,8 @@ describe('Park', function () {
 
     beforeEach(function () {
         ankilosaurus = new Dinosaur('ankilosaurus','herbivore', 50);
+        ankilosaurus1 = new Dinosaur('ankilosaurus','herbivore', 60);
+        ankilosaurus2 = new Dinosaur('ankilosaurus','herbivore', 70);
         brachiosaurus = new Dinosaur('brachiosaurus','herbivore', 80);
         raptor = new Dinosaur ('raptor', 'carnivore', 50);
         spinosaurus = new Dinosaur ('spinosaurus', 'omnivore', 40);
@@ -38,8 +40,14 @@ describe('Park', function () {
         const expected = brachiosaurus
         assert.deepStrictEqual(expected, jurassicPark.dinosaurWithMostVisistors())
     });
-    xit('Find all dinosaurs of a particual species', function () {
-
+    it('Find all dinosaurs of a particual species', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(ankilosaurus1);
+        jurassicPark.addDinosaurToCollection(ankilosaurus2);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        const expected = 3
+        assert.deepStrictEqual(expected, jurassicPark.findDinosaurOfSameSpecies('ankilosaurus').length)
     });
     xit('Calculate the total number of visitors per day', function () {
 

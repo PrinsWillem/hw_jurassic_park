@@ -15,6 +15,7 @@ Park.prototype.removeDinosaurFromCollection = function (dinosaur) {
 
 Park.prototype.dinosaurWithMostVisistors = function () {
     let mostVisitedDinosaur = this.dinosaurCollection[0];
+    
     for (dino of this.dinosaurCollection) {
         if (dino.averageAttractedVisitorsADay > mostVisitedDinosaur.averageAttractedVisitorsADay) {
             mostVisitedDinosaur = dino;
@@ -22,6 +23,18 @@ Park.prototype.dinosaurWithMostVisistors = function () {
     }
 
     return mostVisitedDinosaur;
+}
+
+Park.prototype.findDinosaurOfSameSpecies = function (species) {
+    const dinosaurOfSameSpecies = [];
+
+    for (dino of this.dinosaurCollection) {
+        if (dino.species === species) {
+            dinosaurOfSameSpecies.push(dino)
+        }
+    }
+
+    return dinosaurOfSameSpecies;
 }
 
 module.exports = Park;
