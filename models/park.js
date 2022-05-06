@@ -13,4 +13,15 @@ Park.prototype.removeDinosaurFromCollection = function (dinosaur) {
     this.dinosaurCollection.splice(dinosaurToRemove, 1);
 }
 
+Park.prototype.dinosaurWithMostVisistors = function () {
+    let mostVisitedDinosaur = this.dinosaurCollection[0];
+    for (dino of this.dinosaurCollection) {
+        if (dino.averageAttractedVisitorsADay > mostVisitedDinosaur.averageAttractedVisitorsADay) {
+            mostVisitedDinosaur = dino;
+        }
+    }
+
+    return mostVisitedDinosaur;
+}
+
 module.exports = Park;

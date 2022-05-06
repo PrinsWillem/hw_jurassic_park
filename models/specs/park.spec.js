@@ -23,13 +23,20 @@ describe('Park', function () {
     });
     it('Remove a dinosaur from its collection of dinosaurs', function () {
         jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
         jurassicPark.addDinosaurToCollection(brachiosaurus);
         jurassicPark.removeDinosaurFromCollection(ankilosaurus);
-        const expected = [brachiosaurus];
+        jurassicPark.removeDinosaurFromCollection(brachiosaurus);
+        const expected = [spinosaurus];
         assert.deepStrictEqual(expected, jurassicPark.dinosaurCollection);
     });
-    xit('Find the dinosaur that attracts the most visitors', function () {
-
+    it('Find the dinosaur that attracts the most visitors', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        jurassicPark.addDinosaurToCollection(raptor);
+        const expected = brachiosaurus
+        assert.deepStrictEqual(expected, jurassicPark.dinosaurWithMostVisistors())
     });
     xit('Find all dinosaurs of a particual species', function () {
 
