@@ -58,8 +58,14 @@ describe('Park', function () {
         const expected = 300;
         assert.deepStrictEqual(expected, jurassicPark.countNumberOfVisitorsPerDay());
     });
-    xit('Calculate the total number of visistors per year', function () {
-
+    it('Calculate the total number of visistors per year', function () {
+        jurassicPark.addDinosaurToCollection(ankilosaurus);
+        jurassicPark.addDinosaurToCollection(ankilosaurus1);
+        jurassicPark.addDinosaurToCollection(ankilosaurus2);
+        jurassicPark.addDinosaurToCollection(spinosaurus);
+        jurassicPark.addDinosaurToCollection(brachiosaurus);
+        const expected = 109500;
+        assert.deepStrictEqual(expected, jurassicPark.countNumberOfVisitorsPerYear());
     });
     xit('Calculate the total revenue from ticket sales for one year', function () {
 

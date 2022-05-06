@@ -47,4 +47,10 @@ Park.prototype.countNumberOfVisitorsPerDay = function () {
     return total;
 }
 
+Park.prototype.countNumberOfVisitorsPerYear = function () {
+    total = this.countNumberOfVisitorsPerDay() * 365;
+
+    return total;
+}
+
 module.exports = Park;
