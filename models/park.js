@@ -73,4 +73,19 @@ Park.prototype.removeAllDinosaursOfAParticularSpecies = function (species) {
     return this.dinosaurCollection;
 };
 
+Park.prototype.numberOfEachtDinosaursDietTypeInPark = function () {
+    let numberOfDietTypes = {'carnivore': 0, 'herbivore': 0, 'omnivore': 0};
+
+    for (dino of this.dinosaurCollection) {
+        for (diet in numberOfDietTypes) {
+            if (dino.diet === diet) {
+                numberOfDietTypes[diet] += +1;
+            }
+        }
+    }
+
+    return numberOfDietTypes;
+
+}
+
 module.exports = Park;
